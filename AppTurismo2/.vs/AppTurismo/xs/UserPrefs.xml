@@ -1,0 +1,66 @@
+﻿<Properties StartupConfiguration="{7524D522-3A71-44B2-A550-56AD7E01228F}|Default">
+  <MonoDevelop.Ide.ItemProperties.AppTurismo.Android PreferredExecutionTarget="Android.pixel_5_-_api_30" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_5_-_api_30" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppTurismo/AppTurismo/Views/FeedDetails.xaml">
+    <Files>
+      <File FileName="AppTurismo/AppTurismo/Views/Feed.xaml" Line="22" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/Models/UsuarioModel.cs" Line="10" Column="9" />
+      <File FileName="AppTurismo/AppTurismo/Views/MainPage.xaml" Line="1" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/Views/Feed.xaml.cs" Line="35" Column="10" />
+      <File FileName="AppTurismo/AppTurismo/ViewModels/FeedVM.cs" Line="99" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/Service/FirebaseHelper.cs" Line="240" Column="37" />
+      <File FileName="../../../Library/Caches/VisualStudio/17.0/Symbols/raw.githubusercontent.com/mono/mono/d9a6e8710b37cd7f16cf52eff4f772556e57cc41/mcs/class/referencesource/mscorlib/system/runtime/exceptionservices/exceptionservicescommon.cs" />
+      <File FileName="AppTurismo/AppTurismo/Models/DestinosModel.cs" Line="12" Column="24" />
+      <File FileName="../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.Shared.targets" />
+      <File FileName="AppTurismo/AppTurismo/Utils/UrlToImageSourceConverter.cs" Line="20" Column="17" />
+      <File FileName="AppTurismo/AppTurismo/App.xaml" Line="1" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/Views/FeedDetails.xaml" Line="10" Column="73" />
+      <File FileName="AppTurismo/AppTurismo/Views/FeedDetails.xaml.cs" Line="24" Column="15" />
+      <File FileName="AppTurismo/AppTurismo/ViewModels/InicioSesionVM.cs" Line="77" Column="60" />
+      <File FileName="AppTurismo/AppTurismo/Views/InicioSesion.xaml" Line="1" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/Views/InicioSesion.xaml.cs" Line="1" Column="1" />
+      <File FileName="../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/Android/Xamarin.Android.Legacy.targets" Line="655" Column="41" />
+      <File FileName="AppTurismo/AppTurismo/Models/ResenaModel.cs" Line="17" Column="25" />
+      <File FileName="AppTurismo/AppTurismo/App.xaml.cs" Line="27" Column="59" />
+      <File FileName="AppTurismo/AppTurismo/ViewModels/PerfilUsuarioVM.cs" Line="1" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/ViewModels/RegistroVM.cs" Line="157" Column="34" />
+      <File FileName="AppTurismo/AppTurismo/Views/Mapa.xaml" Line="1" Column="1" />
+      <File FileName="AppTurismo/AppTurismo/ViewModels/FeedDetailsVM.cs" Line="106" Column="78" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AppTurismo" expanded="True" selected="True">
+            <Node name="AppTurismo" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Service" expanded="True" />
+              <Node name="Utils" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Feed.xaml" expanded="True" />
+                <Node name="FeedDetails.xaml" expanded="True" />
+                <Node name="InicioSesion.xaml" expanded="True" />
+              </Node>
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="AppTurismo.Android" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="drawable" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
+</Properties>

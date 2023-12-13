@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTurismo.Views.calendario"
+              xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout >
+            <Label Text="Calendario de eventos locales" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+            <DatePicker x:Name="calendar" IsVisible="True" IsEnabled="True" />
+
+            <Label Text="Actividades para la fecha seleccionada: " 
+                   TextColor="Black"/>
+
+
+            <ListView x:Name="actividadesListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell TextColor="Black"
+                            Text="{Binding}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView> 
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

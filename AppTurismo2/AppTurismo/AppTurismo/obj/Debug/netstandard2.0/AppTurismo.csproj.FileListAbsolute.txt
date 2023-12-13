@@ -1,0 +1,72 @@
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.deps.json
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.dll
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/ref/AppTurismo.dll
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.pdb
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.AssemblyReference.cache
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/App.xaml.g.cs
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfoInputs.cache
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfo.cs
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.CoreCompileInputs.cache
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/XamlC.stamp
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.dll
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/ref/AppTurismo.dll
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.pdb
+C:/Users/Usuario/source/repos/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/InicioSesion.xaml.g.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.deps.json
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.dll
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.pdb
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.AssemblyReference.cache
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.GeneratedMSBuildEditorConfig.editorconfig
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/App.xaml.g.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/calendario.xaml.g.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/InicioSesion.xaml.g.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/Mapa.xaml.g.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfoInputs.cache
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfo.cs
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.CoreCompileInputs.cache
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/XamlC.stamp
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.dll
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/refint/AppTurismo.dll
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.pdb
+D:/Archivos/Universidad/Ruby On Rails/proyecto/AppTurismo/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/ref/AppTurismo.dll
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.deps.json
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.dll
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/ref/AppTurismo.dll
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.pdb
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/App.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/calendario.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/Feed.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/InicioSesion.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/Mapa.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/PerfilUsuario.xaml.g.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfoInputs.cache
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfo.cs
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.CoreCompileInputs.cache
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/XamlC.stamp
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.dll
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/ref/AppTurismo.dll
+C:/Users/Usuario/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.pdb
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.deps.json
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.dll
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/ref/AppTurismo.dll
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/bin/Debug/netstandard2.0/AppTurismo.pdb
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/calendario.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/Feed.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/InicioSesion.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/Mapa.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/Views/PerfilUsuario.xaml.g.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfoInputs.cache
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.AssemblyInfo.cs
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.CoreCompileInputs.cache
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.dll
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/ref/AppTurismo.dll
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.pdb
+/Users/sebastianlopez/Documents/AppTurismo2/AppTurismo2/AppTurismo/AppTurismo/obj/Debug/netstandard2.0/AppTurismo.csproj.AssemblyReference.cache

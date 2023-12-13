@@ -1,0 +1,56 @@
+﻿
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTurismo.Views.Feed">
+    <ContentPage.Content>
+        
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Welcome to Xamarin.Forms!"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" />
+
+                <Frame WidthRequest="200" HeightRequest="150" BackgroundColor="Aqua" Margin="0" Padding="0">
+                    <AbsoluteLayout Margin="0" Padding="0">
+                        <Image Source="playaGuana2.jpeg" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+                        <!-- Contenido del Frame encima de la imagen de fondo -->
+                        <StackLayout Padding="10">
+                            <SearchBar Placeholder="Search..."
+                               x:Name="txtSearch"
+                               TextChanged="TxtSearch_TextChanged"
+                               SearchButtonPressed="TxtSearch_SearchButtonPressed" />
+                            <!-- Otros elementos -->
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </Frame>
+
+                <ListView x:Name="destinosListView" ItemsSource="{Binding listaFeed}"
+                  CachingStrategy="RecycleElement"
+                  RowHeight="200">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="8" Orientation="Horizontal">
+                                    <Image x:Name="imgDestino" Source="{Binding imagen, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding nombre}" FontAttributes="Bold" />
+                                        <Label Text="{Binding ubicacion}" />
+                                        <Label Text="{Binding categoria}" />
+                                        <Label Text="{Binding descripcion}" />
+                                        <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}"></Button>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+                <Label Text="--- FIIIN OOOOOOOOOO 222222 ---"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
