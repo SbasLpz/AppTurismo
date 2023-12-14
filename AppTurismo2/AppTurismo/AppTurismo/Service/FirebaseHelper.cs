@@ -82,7 +82,8 @@ namespace AppTurismo.Service
                     nombre = item.Object.nombre,
                     categoria = item.Object.categoria,
                     ubicacion = item.Object.ubicacion,
-                    imagen = item.Object.imagen
+                    imagen = item.Object.imagen,
+                    precio = item.Object.precio
                 }).ToList();
         }
 
@@ -96,7 +97,8 @@ namespace AppTurismo.Service
                 ubicacion = item.Object.ubicacion,
                 categoria = item.Object.categoria,
                 imagen = item.Object.imagen,
-                Id = item.Key
+                Id = item.Key,
+                precio = item.Object.precio
             }).ToList();
         }
 
@@ -239,6 +241,41 @@ namespace AppTurismo.Service
             var resenasFiltradas = todasLasResenas.Where(r => r.IdDestino == IdDestino).ToList();
             return resenasFiltradas;
 
+        }
+
+        public async Task<List<DestinosModel>> GetDestinosByName(string name)
+        {
+
+            //var response = await firebase.Child("Destinos").OnceAsync<FirebaseObject<DestinosModel>>();
+
+            return (await firebase
+                .Child("Destinos")
+                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
+                {
+                    Id = item.Object.Id,
+                    IdComentarios = item.Object.IdComentarios,
+                    IdPaquete = item.Object.IdPaquete,
+                    nombre = item.Object.nombre,
+                    categoria = item.Object.categoria,
+                    ubicacion = item.Object.ubicacion,
+                    imagen = item.Object.imagen,
+                    precio = item.Object.precio
+                }).Where(c => c.nombre.ToLower().Contains(name.ToLower())).ToList();
+        }
+
+        public async Task<List<DestinosModel>> GetDestinosByCat(string cat)
+        {
+            return (await firebase
+                .Child("Destinos")
+                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
+                {
+                    Id = item.Object.Id,
+                    nombre = item.Object.nombre,
+                    categoria = item.Object.categoria,
+                    ubicacion = item.Object.ubicacion,
+                    imagen = item.Object.imagen,
+                    precio = item.Object.precio
+                }).Where(c => c.categoria.ToLower().Contains(cat.ToLower())).ToList();
         }
     }
 }
