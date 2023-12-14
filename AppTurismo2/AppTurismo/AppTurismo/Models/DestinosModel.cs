@@ -21,5 +21,6 @@ namespace AppTurismo.Models
         public string imagen { get; set; }
         [MaxLength(50)]
         public string ubicacion { get; set; }
+        public int precio { get; set; }
     }
 }
