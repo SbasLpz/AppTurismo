@@ -31,22 +31,34 @@ namespace AppTurismo.Views
             {
                 viewModel.cargarFeed.Execute(null);
                 viewModel.ComandoVermas.Execute(null);
+                
             }
         }
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //string searchValue = txtSearch.Text;
-            //if (!String.IsNullOrEmpty(searchValue))
-            //{
-            //    var tareas = await tareaRepository.GetAllByName(searchValue);
-            //    TareasListView.ItemsSource = null;
-            //    TareasListView.ItemsSource = tareas;
-            //}
-            //else
-            //{
-            //    OnAppearing();
-            //}
+            string searchValue = ((SearchBar)sender).Text;
+            (BindingContext as FeedVM)?.searchTextChanged.Execute(searchValue);
+        }
+
+        private void OnPlayaClicked(object sender, EventArgs e)
+        {
+            (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("playa");
+        }
+
+        private void OnRestauranteClicked(object sender, EventArgs e)
+        {
+            (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("restaurante");
+        }
+
+        private void OnHotelClicked(object sender, EventArgs e)
+        {
+            (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("hotel");
+        }
+
+        private void OnTodosClicked(object sender, EventArgs e)
+        {
+            (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("todos");
         }
 
         private void TxtSearch_SearchButtonPressed(object sender, EventArgs e)

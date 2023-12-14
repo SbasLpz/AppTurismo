@@ -3,12 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTurismo.Views.Feed">
     <ContentPage.Content>
-        
-        <ScrollView>
-            <StackLayout>
+        <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- Contenido superior -->
+            <StackLayout Grid.Row="0">
                 <Label Text="Welcome to Xamarin.Forms!"
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                
 
                 <Frame WidthRequest="200" HeightRequest="150" BackgroundColor="Aqua" Margin="0" Padding="0">
                     <AbsoluteLayout Margin="0" Padding="0">
@@ -38,7 +50,7 @@
                                         <Label Text="{Binding ubicacion}" />
                                         <Label Text="{Binding categoria}" />
                                         <Label Text="{Binding descripcion}" />
-                                        <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}"></Button>
+                                        <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}" WidthRequest="110"></Button>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
@@ -47,10 +59,56 @@
 
                 </ListView>
 
+                
+
                 <Label Text="--- FIIIN OOOOOOOOOO 222222 ---"
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand" />
             </StackLayout>
+
         </ScrollView>
+
+            <!-- Menú inferior -->
+            <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#E7E7E7">
+                
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPlayaClicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="icon_playa.png" WidthRequest="25" HeightRequest="25"/>
+                    <Label Text="Playa" BackgroundColor="#F4F4F4" FontSize="15" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <BoxView Color="Gray" WidthRequest="1" VerticalOptions="FillAndExpand" />
+
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRestauranteClicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="icon_rest.png" WidthRequest="25" HeightRequest="25"/>
+                    <Label Text="Restaurante" BackgroundColor="#F4F4F4" FontSize="15" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <BoxView Color="Gray" WidthRequest="1" VerticalOptions="FillAndExpand" />
+
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnHotelClicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="icon_hotel.png" WidthRequest="25" HeightRequest="25"/>
+                    <Label Text="Hotel" BackgroundColor="#F4F4F4" FontSize="15" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <BoxView Color="Gray" WidthRequest="1" VerticalOptions="FillAndExpand" />
+
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTodosClicked" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="icon_all.png" WidthRequest="25" HeightRequest="25"/>
+                    <Label Text="Todos" BackgroundColor="#F4F4F4" FontSize="15" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
