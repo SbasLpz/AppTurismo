@@ -6,7 +6,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -18,6 +21,8 @@ namespace AppTurismo.ViewModels
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private ObservableCollection<DestinosModel> lista;
         public ICommand ComandoVermas { get; set; }
+        public ICommand searchTextChanged { get; set; }
+        public ICommand CommandFiltroCategoria { get; set; }
         //private List<DestinosModel> lista;
 
         public ICommand cargarFeed { get; }
@@ -55,6 +60,8 @@ namespace AppTurismo.ViewModels
             cargarFeed = new Command(ExecuteCargarFeed);
             ExecuteCargarFeed();
             ComandoVermas = new Command<DestinosModel>(ExecuteVerMas);
+            searchTextChanged = new Command<String>(async (searchValue) => await ExecuteSearchTxtChanged(searchValue));
+            CommandFiltroCategoria = new Command<String>(async (cat) => await ExecuteFiltroCat(cat));
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -110,7 +117,37 @@ namespace AppTurismo.ViewModels
             await navigation.PushAsync(nuevaPagina);
         }
 
+        private async Task ExecuteSearchTxtChanged(string searchValue)
+        {
+            //Console.WriteLine("//// ME EJECUTE /////");
+            if (!String.IsNullOrEmpty(searchValue))
+            {
+                var tareas = await firebaseHelper.GetDestinosByName(searchValue);
+                lista = new ObservableCollection<DestinosModel>(tareas);
+                listaFeed = lista;
+            }
+            else
+            {
+                ExecuteCargarFeed(); // Reemplaza con la lógica que cargue todas las tareas.
+            }
+        }
 
+        private async Task ExecuteFiltroCat(string cat)
+        {
+            //Console.WriteLine("//// ME EJECUTE /////");
+            if (!String.IsNullOrEmpty(cat) && cat.ToLower() != "todos")
+            {
+                var tareas = await firebaseHelper.GetDestinosByCat(cat);
+                
+                lista = new ObservableCollection<DestinosModel>(tareas);
+                listaFeed = lista;
+            }
+            else
+            {
+                Console.WriteLine("[[[[[[ DEFAULT");
+                ExecuteCargarFeed(); // Reemplaza con la lógica que cargue todas las tareas.
+            }
+        }
     }
 }
 
