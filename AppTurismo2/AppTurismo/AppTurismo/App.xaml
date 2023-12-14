@@ -5,6 +5,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <local:UrlToImageSourceConverter x:Key="UrlToImageSourceConverter" />
+            <Style x:Key="ListViewItemStyle" TargetType="ViewCell">
+
+              </Style>
+
     </ResourceDictionary>
     </Application.Resources>
 </Application>
