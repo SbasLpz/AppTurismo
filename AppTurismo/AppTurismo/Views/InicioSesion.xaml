@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTurismo.Views.InicioSesion"
+             BackgroundColor="LightGray"
+             Title="InicioSesion">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Ingrese sus credenciales para poder 
+                       entrar a la aplicación y disfrutar de
+                       nuestros servicios." 
+                         Margin="39" 
+                       HorizontalTextAlignment="Center"
+                       FontSize="Medium"/>
+
+                <Entry Placeholder="Email" Margin="15" 
+                       x:Name="txtCorreo" Text="{Binding Correo, Mode=TwoWay}" />
+                
+                <Entry Placeholder="Contraseña" Margin="15" 
+                       x:Name="txtContra"
+                       IsPassword="True" Text="{Binding Contra, Mode=TwoWay}" />
+
+              
+                <Button Text="Iniciar Sesión" BackgroundColor="#77dd77" TextColor="White" 
+                        CornerRadius="10"
+                        Clicked="btnInicio_Clicked"
+                        Margin="10,15" Command="{Binding IniciarSesion}" />
+                
+                <ImageButton x:Name="inicioFace" 
+                         Clicked="inicioFace_Clicked"
+                         Source="facebook.png" 
+                         IsTabStop="True"
+                         WidthRequest="370"
+                         CornerRadius="20"/>
+
+                <Button Text="Crear cuenta" BackgroundColor="#77dd77" TextColor="White" 
+                        CornerRadius="10"
+                         Clicked="btnRegistro_Clicked"
+                        Margin="10,15" />
+
+
+
+            </StackLayout>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

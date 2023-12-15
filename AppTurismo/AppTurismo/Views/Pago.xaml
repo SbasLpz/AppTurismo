@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTurismo.Views.Pago">
+
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Padding="20" Spacing="20">
+            <Image Source="PagoIcono.jpg" HeightRequest="90" Margin="30"/>
+            <Label Text="Finalizar Compra" HorizontalTextAlignment="Center" TextColor="#333333" FontSize="24" Margin="5" Padding="10"/>
+
+            <Entry Placeholder="Nombre Completo" BackgroundColor="White" Text="{Binding NombreCompleto}"/>
+            <Entry Placeholder="Numero Tarjeta" BackgroundColor="White" Text="{Binding NumeroTarjeta}"/>
+            <Entry Placeholder="CVV" BackgroundColor="White" Text="{Binding CVV}"/>
+            <Entry Placeholder="Fecha de Expiración: Dia/Mes/Año" BackgroundColor="White" Keyboard="Numeric" Text="{Binding FechaExpiracion}" />
+
+            <Button Text="Pagar" BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White"
+                    Command="{Binding RealizarPagoCommand}" Margin="5" />
+
+            <Button x:Name="Volver" Text="Volver" BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White"
+                    Command="{Binding VolverCommand}" Margin="5" />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
