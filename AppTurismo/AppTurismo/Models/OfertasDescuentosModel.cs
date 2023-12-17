@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace AppTurismo.Models
 {
-    public class Oferta
+    public class OfertasModel
     {
         public string ImagenSource { get; set; }
         public string Titulo { get; set; }

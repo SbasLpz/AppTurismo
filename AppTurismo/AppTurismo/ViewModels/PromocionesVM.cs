@@ -17,19 +17,25 @@ namespace AppTurismo.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         FirebaseHelper firebaseHelper = new FirebaseHelper();
-        private ObservableCollection<Oferta> ofertas;
+        private ObservableCollection<OfertasModel> ofertas;
         public ICommand ComandoVermas { get; set; }
-        public ICommand searchTextChanged { get; set; }
-        public ICommand CommandFiltroCategoria { get; set; }
         public ICommand cargarFeed { get; }
+        
+        public ObservableCollection<OfertasModel> listaFeed
+        {
+            get { return ofertas; }
+            set
+            {
+                ofertas = value;
+                OnPropertyChanged(nameof(listaFeed));
+            }
+        }
 
         public PromocionesVM()
         {
             cargarFeed = new Command(ExecuteCargarFeed);
             ExecuteCargarFeed();
-            ComandoVermas = new Command<DestinosModel>(ExecuteVerMas);
-            searchTextChanged = new Command<String>(async (searchValue) => await ExecuteSearchTxtChanged(searchValue));
-            CommandFiltroCategoria = new Command<String>(async (cat) => await ExecuteFiltroCat(cat));
+            ComandoVermas = new Command<OfertasModel>(ExecuteVerMas);
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -41,8 +47,7 @@ namespace AppTurismo.ViewModels
         {
             try
             {
-                // Código que realiza la operación en la base de datos de Firebase
-                var result = await firebaseHelper.GetDestinos();
+                var result = await firebaseHelper.GetOfertas();
                 if (result != null)
                 {
                     Debug.WriteLine("DESTINOS OBTENIDOSSS !!!!!");
@@ -67,54 +72,12 @@ namespace AppTurismo.ViewModels
             }
 
         }
-
-        private async void ExecuteVerMas(DestinosModel destino)
+        private async void ExecuteVerMas(OfertasModel destino)
         {
-            Console.WriteLine("Hola buen Q TAL ?");
-
-            Console.WriteLine("DESTINOOOOO__ID: " + destino.Id);
             Application.Current.Properties["DestinoId"] = destino.Id;
-            //var tarea = (DestinosModel)((Button)sender).CommandParameter;
-            // Obtén la instancia de la interfaz de navegación desde la página actual
             var navigation = Application.Current.MainPage.Navigation;
-
-            // Crea una nueva instancia de la página que deseas abrir
             var nuevaPagina = new FeedDetails(destino);
-
-            // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
             await navigation.PushModalAsync(nuevaPagina);
-        }
-
-        private async Task ExecuteSearchTxtChanged(string searchValue)
-        {
-            //Console.WriteLine("//// ME EJECUTE /////");
-            if (!String.IsNullOrEmpty(searchValue))
-            {
-                var tareas = await firebaseHelper.GetDestinosByName(searchValue);
-                lista = new ObservableCollection<DestinosModel>(tareas);
-                listaFeed = lista;
-            }
-            else
-            {
-                ExecuteCargarFeed(); // Reemplaza con la lógica que cargue todas las tareas.
-            }
-        }
-
-        private async Task ExecuteFiltroCat(string cat)
-        {
-            //Console.WriteLine("//// ME EJECUTE /////");
-            if (!String.IsNullOrEmpty(cat) && cat.ToLower() != "todos")
-            {
-                var tareas = await firebaseHelper.GetDestinosByCat(cat);
-
-                lista = new ObservableCollection<DestinosModel>(tareas);
-                listaFeed = lista;
-            }
-            else
-            {
-                Console.WriteLine("[[[[[[ DEFAULT");
-                ExecuteCargarFeed(); // Reemplaza con la lógica que cargue todas las tareas.
-            }
         }
     }
 }

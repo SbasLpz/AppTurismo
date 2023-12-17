@@ -21,8 +21,6 @@ namespace AppTurismo.Views
 		{
 			InitializeComponent ();
 			BindingContext = new FeedDetailsVM();
-            //imgFoto.Source = (ImageSource)urlConverter.Convert(destino.imagen, typeof(ImageSource), null, CultureInfo.CurrentUICulture);
-
             var convertedImage = urlConverter.Convert(destino.imagen, typeof(ImageSource), null, CultureInfo.CurrentUICulture) as ImageSource;
             if (convertedImage != null)
             {
@@ -30,8 +28,6 @@ namespace AppTurismo.Views
             }
             else
             {
-                // Manejar el caso en que la conversión no sea exitosa
-                // Puedes asignar una imagen predeterminada o manejar el error de otra manera.
                 imgFoto.Source = ImageSource.FromFile("imagen_icon.png");
             }
 
@@ -51,10 +47,6 @@ namespace AppTurismo.Views
             if (result != null)
             {
                 FrameComment.IsVisible = false;
-                Console.WriteLine("ESTE USER YA COMENTO");
-            } else
-            {
-                Console.WriteLine("EL USER NO HA HECHO NINGUN COMENTARIO=S");
             }
 
             var comments = await firebaseHelper.GetComentarios02(destinoId);
@@ -69,12 +61,6 @@ namespace AppTurismo.Views
             if (result != null)
             {
                 FrameComment.IsVisible = false;
-                Console.WriteLine("ESTE USER YA COMENTO");
-            }
-            else
-            {
-                Console.WriteLine("EL USER NO HA HECHO NINGUN COMENTARIO");
-                Console.WriteLine("idUser: "+userId+" destino: "+destinoId);
             }
         }
     }

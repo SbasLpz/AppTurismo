@@ -19,7 +19,7 @@ namespace AppTurismo.Service
             firebase = new FirebaseClient("https://appturismo-e139a-default-rtdb.firebaseio.com/");
         }
 
-        //SELECT DE TODOS LOS USUARIOS
+        // Usuarios 
         public async Task<List<UsuarioModel>> GetUsuarios()
         {
             return (await firebase
@@ -36,7 +36,6 @@ namespace AppTurismo.Service
                     activo = item.Object.activo
                 }).ToList();
         }
-
         public async Task<UsuarioModel> GetUsuarioById(string usuarioId)
         {
             var usuarios = await firebase
@@ -59,14 +58,42 @@ namespace AppTurismo.Service
 
             return usuario;
         }
+        public async Task AddUsuario(UsuarioModel user)
+        {
+            await firebase
+                .Child("Usuarios")
+                .PostAsync(new UsuarioModel() { 
+                    Id = Guid.NewGuid(),
+                    nombres = user.nombres,
+                    apellidos = user.apellidos,
+                    contra = user.contra,
+                    telefono = user.telefono,
+                    tarjeta = user.tarjeta,
+                    correo = user.correo,
+                    activo = user.activo
+                });
+        }
+        public async Task UpdateUsuario(UsuarioModel user)
+        {
+            var toUpdateUser = (await firebase
+                .Child("Usuarios")
+                .OnceAsync<UsuarioModel>()).Where(x => x.Object.Id == user.Id).FirstOrDefault();
 
+            await firebase
+                .Child("Usuarios")
+                .Child(toUpdateUser.Key)
+                .PutAsync(new UsuarioModel() { Id = user.Id, nombres = user.nombres, apellidos = user.apellidos, contra = user.contra, telefono = user.telefono, tarjeta = user.tarjeta, correo = user.correo, activo = user.activo });
+        }
+        
+        // Inicio de Sesion
         public async Task<UsuarioModel> InicioSesion(string correo, string contra)
         {
             var usuarios = await this.GetUsuarios();
             var user = usuarios.FirstOrDefault(u => u.correo == correo && u.contra == contra);
             return user;
         }
-
+        
+        // Destinos
         public async Task<List<DestinosModel>> GetDestinos()
         {
 
@@ -86,20 +113,6 @@ namespace AppTurismo.Service
                     precio = item.Object.precio
                 }).ToList();
         }
-
-        public async Task<List<Oferta>> GetOfertas()
-        {
-
-            //var response = await firebase.Child("Destinos").OnceAsync<FirebaseObject<DestinosModel>>();
-
-            return (await firebase
-                .Child("Promociones")
-                .OnceAsync<DestinosModel>()).Select(item => new Oferta
-                {
-
-                }).ToList();
-        }
-
         public async Task<List<DestinosModel>> GetAllDestinos()
         {
             return (await firebase.Child(nameof(DestinosModel)).OnceAsync<DestinosModel>()).Select(item => new DestinosModel
@@ -114,25 +127,57 @@ namespace AppTurismo.Service
                 precio = item.Object.precio
             }).ToList();
         }
-
-        //AGREGAR USUARIO
-        public async Task AddUsuario(UsuarioModel user)
+        public async Task<List<DestinosModel>> GetDestinosByName(string name)
         {
-            await firebase
-            .Child("Usuarios")
-            .PostAsync(new UsuarioModel() { 
-                Id = Guid.NewGuid(),
-                nombres = user.nombres,
-                apellidos = user.apellidos,
-                contra = user.contra,
-                telefono = user.telefono,
-                tarjeta = user.tarjeta,
-                correo = user.correo,
-                activo = user.activo
-            });
+
+            //var response = await firebase.Child("Destinos").OnceAsync<FirebaseObject<DestinosModel>>();
+
+            return (await firebase
+                .Child("Destinos")
+                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
+            {
+                Id = item.Object.Id,
+                IdComentarios = item.Object.IdComentarios,
+                IdPaquete = item.Object.IdPaquete,
+                nombre = item.Object.nombre,
+                categoria = item.Object.categoria,
+                ubicacion = item.Object.ubicacion,
+                imagen = item.Object.imagen,
+                precio = item.Object.precio
+            }).Where(c => c.nombre.ToLower().Contains(name.ToLower())).ToList();
+        }
+        public async Task<List<DestinosModel>> GetDestinosByCat(string cat)
+        {
+            return (await firebase
+                .Child("Destinos")
+                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
+            {
+                Id = item.Object.Id,
+                nombre = item.Object.nombre,
+                categoria = item.Object.categoria,
+                ubicacion = item.Object.ubicacion,
+                imagen = item.Object.imagen,
+                precio = item.Object.precio
+            }).Where(c => c.categoria.ToLower().Contains(cat.ToLower())).ToList();
+        }
+        
+        // Ofertas
+        public async Task<List<OfertasModel>> GetOfertas()
+        {
+
+            return (await firebase
+                .Child("Promociones")
+                .OnceAsync<OfertasModel>()).Select(item => new OfertasModel()
+                {
+                    ImagenSource = item.Object.ImagenSource
+                    Titulo = item.Object.Titulo,
+                    Descuento = item.Object.Descuento,
+                    Compania = item.Object.Compania,
+                    Precio = item.Object.Precio
+                }).ToList();
         }
 
-        //Agregar comentario
+        // Comentarios / Reseñas
         public async Task AddComment(ResenaModel resena)
         {
             await firebase
@@ -146,20 +191,6 @@ namespace AppTurismo.Service
                 estrellas = resena.estrellas
             });
         }
-
-        //UPDATE USUARIO
-        public async Task UpdateUsuario(UsuarioModel user)
-        {
-            var toUpdateUser = (await firebase
-                .Child("Usuarios")
-                .OnceAsync<UsuarioModel>()).Where(x => x.Object.Id == user.Id).FirstOrDefault();
-
-            await firebase
-                .Child("Usuarios")
-                .Child(toUpdateUser.Key)
-                .PutAsync(new UsuarioModel() { Id = user.Id, nombres = user.nombres, apellidos = user.apellidos, contra = user.contra, telefono = user.telefono, tarjeta = user.tarjeta, correo = user.correo, activo = user.activo });
-        }
-
         public async Task<ResenaModel> GetResenaByIds(string IdUsuario, string IdDestino)
         {
             var resenas = await firebase
@@ -196,25 +227,6 @@ namespace AppTurismo.Service
 
 
         }
-
-        //public async Task<ResenaModel> AgregarOActualizarResena(ResenaModel nuevaResena)
-        //{
-        //    var resenaExistente = await GetResenaByIds(nuevaResena.IdUsuario, nuevaResena.IdDestino);
-
-        //    if (resenaExistente != null)
-        //    {
-        //        // Si la resena ya existe, actualiza los datos
-        //        nuevaResena.Id = resenaExistente.Id;
-        //        return resenaExistente
-        //    }
-
-        //    // Guarda o actualiza la resena en Firebase
-        //    await firebase
-        //        .Child("Resenas")
-        //        .Child(nuevaResena.Id)
-        //        .PutAsync(nuevaResena);
-        //}
-
         public async Task<List<ResenaModel>> GetComentarios()
         {
             return (await firebase.Child(nameof(ResenaModel)).OnceAsync<ResenaModel>()).Select(item => new ResenaModel
@@ -226,7 +238,6 @@ namespace AppTurismo.Service
                 Id = item.Object.Id
             }).ToList();
         }
-
         public async Task<List<ResenaModel>> GetComentarios02(string IdDestino)
         {
             var comentarios = await firebase.Child("Resenas").OnceAsync<ResenaModel>();
@@ -254,41 +265,6 @@ namespace AppTurismo.Service
             var resenasFiltradas = todasLasResenas.Where(r => r.IdDestino == IdDestino).ToList();
             return resenasFiltradas;
 
-        }
-
-        public async Task<List<DestinosModel>> GetDestinosByName(string name)
-        {
-
-            //var response = await firebase.Child("Destinos").OnceAsync<FirebaseObject<DestinosModel>>();
-
-            return (await firebase
-                .Child("Destinos")
-                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
-                {
-                    Id = item.Object.Id,
-                    IdComentarios = item.Object.IdComentarios,
-                    IdPaquete = item.Object.IdPaquete,
-                    nombre = item.Object.nombre,
-                    categoria = item.Object.categoria,
-                    ubicacion = item.Object.ubicacion,
-                    imagen = item.Object.imagen,
-                    precio = item.Object.precio
-                }).Where(c => c.nombre.ToLower().Contains(name.ToLower())).ToList();
-        }
-
-        public async Task<List<DestinosModel>> GetDestinosByCat(string cat)
-        {
-            return (await firebase
-                .Child("Destinos")
-                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
-                {
-                    Id = item.Object.Id,
-                    nombre = item.Object.nombre,
-                    categoria = item.Object.categoria,
-                    ubicacion = item.Object.ubicacion,
-                    imagen = item.Object.imagen,
-                    precio = item.Object.precio
-                }).Where(c => c.categoria.ToLower().Contains(cat.ToLower())).ToList();
         }
     }
 }
