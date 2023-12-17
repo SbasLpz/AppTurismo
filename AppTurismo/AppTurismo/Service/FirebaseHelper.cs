@@ -266,5 +266,28 @@ namespace AppTurismo.Service
             return resenasFiltradas;
 
         }
+
+        public async Task<bool> AgregarDestino(DestinosModel destino)
+        {
+            var data = await firebase.Child("Destinos").PostAsync(JsonConvert.SerializeObject(destino));
+
+            if (!string.IsNullOrEmpty(data.Key)) return true;
+
+            return false;
+        }
+
+        public async Task<bool> UpdateComment(ResenaModel resena)
+        {
+            var toUpdateComment = (await  firebase
+                .Child("Resenas")
+                .OnceAsync<ResenaModel>()).Where(a => a.Object.Id.ToString() == resena.Id.ToString()).FirstOrDefault();
+
+            var resenaJson = JsonConvert.SerializeObject(resena);
+
+            await firebase.Child("Resenas").Child(toUpdateComment.Key)
+                .PutAsync(resenaJson);
+            return true;
+            
+        }
     }
 }
