@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppTurismo.Views.AdminDestino">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Agregar Destino"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="Large" />
+
+            <Entry x:Name="txtNombre"
+                   Placeholder="Nombre..."
+                   Text="{Binding destino.nombre}"/>
+
+            <Entry x:Name="txtDesc"
+                   Placeholder="Descripcón..."
+                   Text="{Binding destino.descripcion}"/>
+
+            <Entry x:Name="txtUbicacion"
+                   Placeholder="Ubicacio..."
+                   Text="{Binding destino.ubicacion}"/>
+
+            <Entry x:Name="txtPrecio"
+                   Placeholder="Precio..."
+                   Keyboard="Numeric"
+                   Text="{Binding destino.precio}"/>
+
+            <Label Text="Selecciona una opción:" />
+    
+            <Picker x:Name="myPicker" SelectedItem="{Binding destino.categoria}">
+                <Picker.Items>
+                    <x:String>playa</x:String>
+                    <x:String>hotel</x:String>
+                    <x:String>restaurante</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Entry x:Name="txtImagen"
+                   Placeholder="Imagen..."
+                   Text="{Binding destino.imagen}"/>
+
+            <Button Text="Agregar"
+                    x:Name="btnAgregar"
+                    CornerRadius="15"
+                    Command="{Binding commandSave}" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
