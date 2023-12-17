@@ -87,6 +87,19 @@ namespace AppTurismo.Service
                 }).ToList();
         }
 
+        public async Task<List<Oferta>> GetOfertas()
+        {
+
+            //var response = await firebase.Child("Destinos").OnceAsync<FirebaseObject<DestinosModel>>();
+
+            return (await firebase
+                .Child("Promociones")
+                .OnceAsync<DestinosModel>()).Select(item => new Oferta
+                {
+
+                }).ToList();
+        }
+
         public async Task<List<DestinosModel>> GetAllDestinos()
         {
             return (await firebase.Child(nameof(DestinosModel)).OnceAsync<DestinosModel>()).Select(item => new DestinosModel

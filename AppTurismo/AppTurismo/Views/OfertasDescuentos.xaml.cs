@@ -22,7 +22,7 @@ namespace AppTurismo.Views
             {
                 new Oferta
                 {
-                    ImagenSource = "TourDescuento.jpg",
+                    ImagenSource = "https://www.guanacastetours.com/wp-content/uploads/2018/02/catarata-mapache-kid-min.jpg",
                     Titulo = "Tour Cuadriciclo",
                     Descuento = "Descuento del 20%",
                     Compania = "Tours Guanacaste",
