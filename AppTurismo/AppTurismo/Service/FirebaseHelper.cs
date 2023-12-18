@@ -169,7 +169,7 @@ namespace AppTurismo.Service
                 .Child("Promociones")
                 .OnceAsync<OfertasModel>()).Select(item => new OfertasModel()
                 {
-                    ImagenSource = item.Object.ImagenSource
+                    ImagenSource = item.Object.ImagenSource,
                     Titulo = item.Object.Titulo,
                     Descuento = item.Object.Descuento,
                     Compania = item.Object.Compania,

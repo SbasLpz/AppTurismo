@@ -35,7 +35,7 @@ namespace AppTurismo.ViewModels
         {
             cargarFeed = new Command(ExecuteCargarFeed);
             ExecuteCargarFeed();
-            ComandoVermas = new Command<OfertasModel>(ExecuteVerMas);
+         /*   ComandoVermas = new Command<OfertasModel>(ExecuteVerMas); */
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -51,11 +51,8 @@ namespace AppTurismo.ViewModels
                 if (result != null)
                 {
                     Debug.WriteLine("DESTINOS OBTENIDOSSS !!!!!");
-                    listaFeed = new ObservableCollection<DestinosModel>(result);
-                    Debug.WriteLine("CANTIDAD DESTINOS: " + listaFeed.Count);
-                    Debug.WriteLine("---------: " + listaFeed[0].nombre);
-                    Debug.WriteLine("IMAGEN A USAR----: " + listaFeed[0].imagen);
-                    //MessagingCenter.Send(this, "UserFromIS", result);
+                    listaFeed = new ObservableCollection<OfertasModel>(result);
+
                 }
                 else
                 {
@@ -72,12 +69,12 @@ namespace AppTurismo.ViewModels
             }
 
         }
-        private async void ExecuteVerMas(OfertasModel destino)
-        {
-            Application.Current.Properties["DestinoId"] = destino.Id;
-            var navigation = Application.Current.MainPage.Navigation;
-            var nuevaPagina = new FeedDetails(destino);
-            await navigation.PushModalAsync(nuevaPagina);
-        }
+        //private async void ExecuteVerMas(OfertasModel destino)
+        //{
+        //    Application.Current.Properties["DestinoId"] = destino.
+        //    var navigation = Application.Current.MainPage.Navigation;
+        //    var nuevaPagina = new FeedDetails(destino);
+        //    await navigation.PushModalAsync(nuevaPagina);
+        //}
     }
 }
