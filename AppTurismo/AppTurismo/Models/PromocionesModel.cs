@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Input;
 
 namespace AppTurismo.Models
 {
-    public class OfertasModel
+    public class PromocionesModel
     {
         public string ImagenSource { get; set; }
         public string Titulo { get; set; }

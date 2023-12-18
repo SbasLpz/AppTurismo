@@ -29,7 +29,7 @@ namespace AppTurismo.Views
                     await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new Feed());
                     break;
                 case "Ofertas y descuentos":
-                    await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new OfertasDescuentos());
+                    await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new Promociones());
                     break;
                 case "Calendario":
                     await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new calendario());
