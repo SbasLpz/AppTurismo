@@ -114,7 +114,7 @@ namespace AppTurismo.ViewModels
             var nuevaPagina = new FeedDetails(destino);
 
             // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
-            await navigation.PushAsync(nuevaPagina);
+            await navigation.PushModalAsync(nuevaPagina);
         }
 
         private async Task ExecuteSearchTxtChanged(string searchValue)

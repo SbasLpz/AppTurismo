@@ -14,11 +14,6 @@ namespace AppTurismo
         {
             InitializeComponent();
 
-          /*  MainPage = new FlyoutPage
-            {
-                Flyout = new NavigationPage(new MasterPage()) { Title = "Menu", BarBackgroundColor = Color.FromHex("#77dd77") },
-                Detail = new NavigationPage(new Feed()) { Title = "Feed", BarBackgroundColor = Color.FromHex("#77dd77") }
-            };*/
 
             //MainPage = new MainPage();
 
