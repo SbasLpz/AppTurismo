@@ -41,6 +41,7 @@ namespace AppTurismo.Views
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
             });
 
+          
         }
 
 
@@ -63,13 +64,22 @@ namespace AppTurismo.Views
 
         private void inicializarActividades()
         {
-            var actividades = new List<string>
+            var actividadesFecha1 = new List<string>
+            {
+             "Pesca deportiva",
+             "Surf",
+             "Degustacion de comidas"
+             };
+
+            var actividadesFecha2 = new List<string>
               {
-                  "Pesca deportiva",
-                  "Surf",
-                  "Degustacion de comidas"
-              };
-            actividadesPorFecha.Add(DateTime.Parse("2023-12-15"), actividades);
+               "Senderismo",
+               "Buceo"
+               };
+
+           
+            actividadesPorFecha.Add(DateTime.Parse("2023-12-28"), actividadesFecha1);
+            actividadesPorFecha.Add(DateTime.Parse("2023-12-30"), actividadesFecha2);
         }
 
         private List<string> ObtenerActividadesParaFecha(DateTime fecha)
@@ -82,10 +92,14 @@ namespace AppTurismo.Views
             }
             else
             {
+                
                 return new List<string> { "No hay actividades para esta fecha." };
             }
         }
 
-
+        private void btnAddActividad_Clicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

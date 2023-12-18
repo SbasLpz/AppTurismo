@@ -16,8 +16,8 @@
         <StackLayout Padding="50">
             <Entry Placeholder="Nombres" x:Name="txtNombres" Text="{Binding Nombres, Mode=TwoWay}"/>
             <Entry Placeholder="Apellidos" x:Name="txtApellidos" Text="{Binding Apellidos, Mode=TwoWay}"/>
-            <Entry Placeholder="Password" x:Name="txtContra" IsPassword="True" Text="{Binding Contra, Mode=TwoWay}"/>
-            <Entry Placeholder="Telfono" Keyboard="Telephone" MaxLength="8" x:Name="txtTelefono" Text="{Binding Telefono, Mode=TwoWay}"/>
+            <Entry Placeholder="Contraseña" x:Name="txtContra" IsPassword="True" Text="{Binding Contra, Mode=TwoWay}"/>
+            <Entry Placeholder="Telefono" Keyboard="Telephone" MaxLength="8" x:Name="txtTelefono" Text="{Binding Telefono, Mode=TwoWay}"/>
             <Label Text="Número de tarjeta: " />
             <Entry Placeholder="0000 0000 0000 0000" MaxLength="19" Keyboard="Numeric" x:Name="txtNumTarjeta" TextChanged="txtNumTarjeta_TextChanged" Text="{Binding NumTarjeta, Mode=TwoWay}" />
             <Entry Placeholder="ejemplo@gmail.com" Keyboard="Email" x:Name="txtCorreo" Text="{Binding Correo, Mode=TwoWay}"/>

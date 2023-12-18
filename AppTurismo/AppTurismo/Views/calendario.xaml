@@ -17,11 +17,15 @@
             <ListView x:Name="actividadesListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell TextColor="Black"
-                            Text="{Binding}" />
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label TextColor="Black" Text="{Binding}" />
+                                <Button x:Name="btnAddActividad"  BackgroundColor="#77dd77" Text="+" Clicked="btnAddActividad_Clicked" Margin="1,2,3,4" />
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView> 
+            </ListView>
 
 
         </StackLayout>

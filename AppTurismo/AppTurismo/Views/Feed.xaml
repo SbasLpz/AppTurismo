@@ -94,7 +94,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnPaquetesClicked" />
                     </StackLayout.GestureRecognizers>
-                    <Image Source="icon_hotel.png" WidthRequest="25" HeightRequest="25"/>
+                    <Image Source="icon_paquetes.png" WidthRequest="25" HeightRequest="25"/>
                     <Label Text="Paquetes" BackgroundColor="Transparent" FontSize="15" HorizontalTextAlignment="Center"/>
                 </StackLayout>
 

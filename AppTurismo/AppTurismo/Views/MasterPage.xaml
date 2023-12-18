@@ -19,7 +19,6 @@
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>Destinos</x:String>
-                    <x:String>Paquetes</x:String>
                     <x:String>Ofertas y descuentos</x:String>
                     <x:String>Calendario</x:String>
                     <x:String>Perfil de usuario</x:String>
