@@ -3,22 +3,30 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:fRating="clr-namespace:Rating;assembly=Rating"
-    x:Class="AppTurismo.Views.FeedDetails"
-    Title="FeedDetails">
+    x:Class="AppTurismo.Views.FeedDetails">
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout>
-            <Image x:Name="imgFoto" WidthRequest="200" HeightRequest="200" Aspect="AspectFill"/>
+        <StackLayout Padding="10">
+            <Image x:Name="imgFoto" WidthRequest="200" HeightRequest="220" Aspect="AspectFill"/>
+                <Label Text="Nombre: " FontAttributes="Bold"/>
             <Label x:Name="lblName"
                    FontSize="Medium"/>
+                <Label Text="Ubiacación: " FontAttributes="Bold"/>
             <Label x:Name="lblUbi"
                    FontSize="Medium"/>
+                <Label Text="Categoría: " FontAttributes="Bold"/>
             <Label x:Name="lblCategoria"
                    FontSize="Medium"/>
-            <Button BackgroundColor="Orange" Text="Paquete"></Button>
+                <Label Text="Descripción: " FontAttributes="Bold"/>
+            <Label x:Name="lblDesc"
+                   FontSize="Medium"/>
+                <Label Text="Precio: " FontAttributes="Bold"/>
+            <Label x:Name="lblPrecio"
+                   FontSize="Medium"/>
+            <Button x:Name="btnPagar" BackgroundColor="#3DA6EA" Text="Reservar"></Button>
 
             <StackLayout >
-                <Frame BorderColor="Gray" CornerRadius="5" Padding="10" x:Name="FrameComment">
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="10" x:Name="FrameComment" IsVisible="{Binding IsFrameVisible}">
                     <StackLayout>
                     <fRating:RatingBar x:Name="rating" HorizontalOptions="Start" ImageWidth="30" ImageHeight="30" FlowDirection="LeftToRight" EmptyStarImage="star.png" FillStarImage="star_2.png" SelectedStarValue="{Binding Estrellas}" ></fRating:RatingBar>
                         <Label Margin="0,10,0,0" Text="Deja tu comentario: "/>
@@ -27,6 +35,18 @@
                            VerticalOptions="StartAndExpand" 
                            HeightRequest="100"/>
                         <Button TextColor="White" WidthRequest="100" Text="Comentar" FontSize="12" BackgroundColor="#4AD050" HorizontalOptions="Start" Command="{Binding commandAddComment}"></Button>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BorderColor="Gray" CornerRadius="5" Padding="10" x:Name="FrameCommentUpdate" IsVisible="{Binding IsFrameUpdateVisible}">
+                    <StackLayout>
+                    <fRating:RatingBar x:Name="rating2" HorizontalOptions="Start" ImageWidth="30" ImageHeight="30" FlowDirection="LeftToRight" EmptyStarImage="star.png" FillStarImage="star_2.png" SelectedStarValue="{Binding CommentFUpdate.estrellas}" ></fRating:RatingBar>
+                        <Label Margin="0,10,0,0" Text="Actualiza tu comentario: "/>
+                        <Editor Placeholder="Actualiza tu comentario aquí..." 
+                           Text="{Binding CommentFUpdate.comentario}" FontSize="18"
+                           VerticalOptions="StartAndExpand" 
+                           HeightRequest="100"/>
+                        <Button TextColor="White" WidthRequest="100" Text="Editar" FontSize="12" BackgroundColor="#4AD050" HorizontalOptions="Start" Command="{Binding commandUpdateComment}"></Button>
                     </StackLayout>
                 </Frame>
 
