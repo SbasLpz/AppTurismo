@@ -1,6 +1,7 @@
 ﻿using AppTurismo.Models;
 using Firebase.Database;
 using Firebase.Database.Query;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -104,8 +105,6 @@ namespace AppTurismo.Service
                 .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
                 {
                     Id = item.Object.Id,
-                    IdComentarios = item.Object.IdComentarios,
-                    IdPaquete = item.Object.IdPaquete,
                     nombre = item.Object.nombre,
                     categoria = item.Object.categoria,
                     ubicacion = item.Object.ubicacion,
@@ -117,8 +116,7 @@ namespace AppTurismo.Service
         {
             return (await firebase.Child(nameof(DestinosModel)).OnceAsync<DestinosModel>()).Select(item => new DestinosModel
             {
-                IdComentarios = item.Object.IdComentarios,
-                IdPaquete = item.Object.IdPaquete,
+
                 nombre = item.Object.nombre,
                 ubicacion = item.Object.ubicacion,
                 categoria = item.Object.categoria,
@@ -137,8 +135,6 @@ namespace AppTurismo.Service
                 .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
             {
                 Id = item.Object.Id,
-                IdComentarios = item.Object.IdComentarios,
-                IdPaquete = item.Object.IdPaquete,
                 nombre = item.Object.nombre,
                 categoria = item.Object.categoria,
                 ubicacion = item.Object.ubicacion,

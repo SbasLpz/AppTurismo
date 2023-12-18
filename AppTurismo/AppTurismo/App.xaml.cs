@@ -24,7 +24,7 @@ namespace AppTurismo
 
             //******************************************************************************************
             //pagina de inicio de sesion
-            MainPage = new NavigationPage(new PromocionesDetails())
+            MainPage = new NavigationPage(new InicioSesion())
              {
                  BarBackgroundColor = Color.FromHex("#77dd77"),
              };
