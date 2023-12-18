@@ -17,11 +17,11 @@ namespace AppTurismo.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         FirebaseHelper firebaseHelper = new FirebaseHelper();
-        private ObservableCollection<OfertasModel> ofertas;
+        private ObservableCollection<PromocionesModel> ofertas;
         public ICommand ComandoVermas { get; set; }
         public ICommand cargarFeed { get; }
         
-        public ObservableCollection<OfertasModel> listaFeed
+        public ObservableCollection<PromocionesModel> listaFeed
         {
             get { return ofertas; }
             set
@@ -51,7 +51,7 @@ namespace AppTurismo.ViewModels
                 if (result != null)
                 {
                     Debug.WriteLine("DESTINOS OBTENIDOSSS !!!!!");
-                    listaFeed = new ObservableCollection<OfertasModel>(result);
+                    listaFeed = new ObservableCollection<PromocionesModel>(result);
 
                 }
                 else

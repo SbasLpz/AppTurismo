@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTurismo.Views.Promociones">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout BackgroundColor="#CF010B" HeightRequest="160" Padding="20" Spacing="10">
+                    <Image Source="OfertasIcono.png" Aspect="AspectFit" HeightRequest="100"/>
+                    <Label Text="Ofertas y Descuentos" TextColor="Beige" FontSize="30" FontAttributes="Bold"
+                           HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout Padding="20" Spacing="20">
+                    <CollectionView ItemsSource="{Binding Ofertas}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout BackgroundColor="White" Padding="10" Spacing="10">
+                                    <Image Source="{Binding ImagenSource}" Aspect="AspectFill" HeightRequest="120"/>
+                                    <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Descuento}" FontSize="14" TextColor="DarkOliveGreen"/>
+                                    <Label Text="{Binding Compania}" FontSize="14" TextColor="DarkOliveGreen"/>
+                                    <Label Text="{Binding Precio}" FontSize="14" TextColor="DarkOliveGreen"/>
+                                    <Button Text="Ver más información" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
+                                            Command="{Binding InformacionCommand}"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage> 

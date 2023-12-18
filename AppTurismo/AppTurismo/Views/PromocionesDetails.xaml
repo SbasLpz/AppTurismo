@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTurismo.Views.PromocionesDetails">
     <ContentPage.Content>
-            <ScrollView>
+        <ScrollView>
             <StackLayout BackgroundColor="White" Padding="10" Spacing="10">
                 <Image Source="{Binding ImagenSource}" Aspect="AspectFill" HeightRequest="120"/>
                 <Label Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold"/>
                 <Label Text="{Binding Descripcion}" FontSize="14" TextColor="DarkOliveGreen"/>
-
                 <Label Text="{Binding Descuento}" FontSize="14" TextColor="DarkOliveGreen"/>
                 <Label Text="{Binding Compania}" FontSize="14" TextColor="DarkOliveGreen"/>
                 <Label Text="{Binding Precio}" FontSize="14" TextColor="DarkOliveGreen"/>
-                <Button Text="Ver más información" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
+                <Button Text="Reservar" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
                 Command="{Binding ReservarPromocionesCommand}"/>
             </StackLayout>
         </ScrollView>
-</ContentPage.Content>
+    </ContentPage.Content>
 
+</ContentPage>
