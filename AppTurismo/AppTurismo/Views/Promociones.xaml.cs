@@ -15,23 +15,23 @@ namespace AppTurismo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Promociones : ContentPage
     {
-        PromocionesVM obj = new PromocionesVM();
 
         public Promociones()
         {
             InitializeComponent();
+            BindingContext = new PromocionesVM();
+            (BindingContext as PromocionesVM)?.ExecuteCargarOfertas();
 
-            promocionesListView.RefreshCommand = new Command(() => {
-                OnAppearing();
-            });
+
         }
 
-        protected override async void OnAppearing()
+        private void OnPageAppearing(object sender, EventArgs e)
         {
-            var promociones = await obj.ExecuteCargarOfertas();
-            promocionesListView.ItemsSource = promociones;
-            promocionesListView.IsRefreshing = false;
+            if (BindingContext is PromocionesVM viewModel)
+            {
+                viewModel.cargarFeedOfertas.Execute(null);
+                viewModel.ComandoMasInformacion.Execute(null);
+            }
         }
     }
-
 }

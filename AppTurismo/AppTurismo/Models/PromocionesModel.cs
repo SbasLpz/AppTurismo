@@ -9,9 +9,9 @@ namespace AppTurismo.Models
 {
     public class PromocionesModel
     {
-        [PrimaryKey, AutoIncrement]
-        public Guid Id { get; set; }
-        public string ImagenSource { get; set; }
+        [PrimaryKey]
+        public string Id { get; set; }
+        public string ImageSource { get; set; }
         public string Titulo { get; set; }
         public string Descuento { get; set; }
         public string Compania { get; set; }

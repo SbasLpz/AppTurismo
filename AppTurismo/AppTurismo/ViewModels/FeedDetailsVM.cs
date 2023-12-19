@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using AppTurismo.Models;
 using AppTurismo.Service;
+using AppTurismo.Views;
 using Firebase.Database;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -26,6 +27,7 @@ namespace AppTurismo.ViewModels
         private bool isFrameUpdateVisible;
         private ResenaModel commentFUpdate { get; set; }
         public ICommand commandUpdateComment { get; set; }
+        public ICommand commandGoToPay { get; set; }
 
         public ResenaModel CommentFUpdate
         {
@@ -114,7 +116,9 @@ namespace AppTurismo.ViewModels
             loadComments();
             loadCommnetFUpdate();
             commandUpdateComment = new Command(ExecuteUpdateComment);
-		}
+            commandGoToPay = new Command(ExecuteGoToPay);
+
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -201,6 +205,17 @@ namespace AppTurismo.ViewModels
             {
                 Console.WriteLine("///// NO SE ACTUALIZO EL COMMENT /////");
             }
+        }
+
+
+        private async void ExecuteGoToPay()
+        {
+            // Obtén la instancia de la interfaz de navegación desde la página actual
+            var navigation = Application.Current.MainPage.Navigation;
+            // Crea una nueva instancia de la página que deseas abrir
+            var nuevaPagina = new Pago(userId, destinoId);
+            // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
+            await navigation.PushModalAsync(nuevaPagina);
         }
 
     }

@@ -20,7 +20,7 @@ namespace AppTurismo.ViewModels
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private ObservableCollection<PromocionesModel> ofertas;
         public ICommand ComandoMasInformacion { get; set; }
-        public ICommand cargarFeedOfertas { get; }
+        public ICommand cargarFeedOfertas { get; set; }
 
         public ObservableCollection<PromocionesModel> ofertaFeed
         {
@@ -32,17 +32,24 @@ namespace AppTurismo.ViewModels
             }
         }
 
+        public PromocionesVM()
+        {
+            cargarFeedOfertas = new Command(ExecuteCargarOfertas);
+            ExecuteCargarOfertas();
+            ComandoMasInformacion = new Command<PromocionesModel>(ExecuteMasInformacion);
+            }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async Task<List<PromocionesModel>> ExecuteCargarOfertas()
+        public async void ExecuteCargarOfertas()
         {
-            var result = new List<PromocionesModel>();
+         
             try
             {
-                result = await firebaseHelper.GetOfertas();
+               var result = await firebaseHelper.GetOfertas();
                 if (result != null)
                 {
                     Debug.WriteLine("DESTINOS OBTENIDOSSS !!!!!");
@@ -56,15 +63,13 @@ namespace AppTurismo.ViewModels
                 }
 
             }
-            catch (Exception ex)
+            catch (Firebase.Database.FirebaseException ex)
             {
                 // Imprimir detalles sobre la excepción
                 Console.WriteLine($"Error: {ex.Message}");
                 Console.WriteLine($"StackTrace: {ex.StackTrace}");
                 // Puedes agregar más información si es necesario
             }
-
-            return result;
 
         }
 

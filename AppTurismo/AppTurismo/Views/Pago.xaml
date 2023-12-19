@@ -15,7 +15,7 @@
             <Entry Placeholder="Fecha de Expiración: Dia/Mes/Año" BackgroundColor="White" Keyboard="Numeric" Text="{Binding FechaExpiracion}" />
 
             <Button Text="Pagar" BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White"
-                    Command="{Binding RealizarPagoCommand}" Margin="5" />
+                    Command="{Binding ComandoPago}" Margin="5" />
 
             <Button x:Name="Volver" Text="Volver" BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White"
                     Command="{Binding VolverCommand}" Margin="5" />

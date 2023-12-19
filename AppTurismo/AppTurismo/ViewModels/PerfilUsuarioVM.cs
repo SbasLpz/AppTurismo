@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using AppTurismo.Models;
@@ -11,27 +10,18 @@ using Xamarin.Forms;
 
 namespace AppTurismo.ViewModels
 {
-    public class PerfilUsuarioVM: INotifyPropertyChanged
+    public class PerfilUsuarioVM
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
-        private UsuarioModel usuario;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        private ObservableCollection<UsuarioModel> usuario;
         public ICommand cargarFeedUsuario { get; }
 
-        public UsuarioModel userInfo
+        public ObservableCollection<UsuarioModel> usuarioFeed
         {
             get { return usuario; }
             set
             {
                 usuario = value;
-                OnPropertyChanged(nameof(usuario));
             }
         }
 
@@ -47,10 +37,12 @@ namespace AppTurismo.ViewModels
             {
                 var result = await firebaseHelper.GetUsuarioById("8ea4d5e1-bd71-41bc-96be-8ae595feefba");
                 if (result != null)
-                    this.usuario = result.FirstOrDefault();
+                {
+                    usuarioFeed = new ObservableCollection<UsuarioModel>(result);
+                }
                 else
                 {
-                    this.usuario = null;
+                    usuarioFeed = null;
                 }
             }
             catch (Firebase.Database.FirebaseException ex)

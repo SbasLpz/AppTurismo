@@ -24,7 +24,7 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Margin="8" Orientation="Horizontal">
-                                        <Image x:Name="imgDestino" Source="{Binding ImagenSource, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
+                                        <Image x:Name="imgDestino" Source="{Binding ImageSource, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
                                         <StackLayout Orientation="Vertical">
                                             <Label Text="{Binding Titulo}" FontAttributes="Bold" />
                                             <Label Text="{Binding Descuento}" />

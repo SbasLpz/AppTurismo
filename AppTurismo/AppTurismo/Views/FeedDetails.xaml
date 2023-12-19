@@ -23,7 +23,7 @@
                 <Label Text="Precio: " FontAttributes="Bold"/>
             <Label x:Name="lblPrecio"
                    FontSize="Medium"/>
-            <Button x:Name="btnPagar" BackgroundColor="#3DA6EA" Text="Reservar"></Button>
+                <Button BackgroundColor="#3DA6EA" Text="Reservar" Command="{Binding commandGoToPay}"></Button>
 
             <StackLayout >
                 <Frame BorderColor="Gray" CornerRadius="5" Padding="10" x:Name="FrameComment" IsVisible="{Binding IsFrameVisible}">
@@ -62,7 +62,7 @@
                                         <fRating:RatingBar x:Name="rating" HorizontalOptions="Start" ImageWidth="30" ImageHeight="30" FlowDirection="LeftToRight" EmptyStarImage="star.png" FillStarImage="star_2.png" SelectedStarValue="{Binding estrellas}" IsEnabled="False"></fRating:RatingBar>
                                         <Label Text="{Binding nombreUser}" FontAttributes="Bold" />
                                         <Label Text="{Binding comentario}" />
-                                        <!--<Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas}" CommandParameter="{Binding .}"></Button>-->
+                                        <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas}" CommandParameter="{Binding .}"></Button>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>
