@@ -14,18 +14,31 @@
                    TextColor="Black"/>
 
 
-            <ListView x:Name="actividadesListView">
+            <ListView x:Name="actividadesListView" ItemsSource="{Binding Actividades}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label TextColor="Black" Text="{Binding}" />
-                                <Button x:Name="btnAddActividad"  BackgroundColor="#77dd77" Text="+" Clicked="btnAddActividad_Clicked" Margin="1,2,3,4" />
+                                <Button x:Name="btnAddActividad"  BackgroundColor="#77dd77"  
+                                        Text="+" 
+                                        Clicked="btnAddActividad_Clicked" 
+                                        CommandParameter="{Binding .}"
+                                        Margin="1,2,3,4" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+
+            <Button x:Name="btnMostrarActividades"  BackgroundColor="#77dd77" 
+                    Text="Mostrar actividades guardadas" 
+                    Clicked="btnMostrarActividades_Clicked" 
+                    Margin="1,2,3,4" />
+            <Label x:Name="lblActividadSeleccionada" />
+            <Label x:Name="lblFechaSeleccionada" />
+
 
 
         </StackLayout>
