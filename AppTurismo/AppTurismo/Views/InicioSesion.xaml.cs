@@ -34,13 +34,13 @@ namespace AppTurismo.Views
         //envia a registro
         private void btnRegistro_Clicked(object sender, EventArgs e)
         {
-
+            Xamarin.Forms.Application.Current.MainPage = new MainPage();
         }
 
         //inicio con facebook
         private void inicioFace_Clicked(object sender, EventArgs e)
         {
-
+            Xamarin.Forms.Application.Current.MainPage = new AutorizacionFacebook();
         }
         //inicio de sesion con correo
         private async void btnInicio_Clicked(object sender, EventArgs e)

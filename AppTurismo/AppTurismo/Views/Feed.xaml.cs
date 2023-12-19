@@ -56,6 +56,11 @@ namespace AppTurismo.Views
             (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("hotel");
         }
 
+        private void OnPaquetesClicked(object sender, EventArgs e)
+        {
+            (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("paquete");
+        }
+
         private void OnTodosClicked(object sender, EventArgs e)
         {
             (BindingContext as FeedVM)?.CommandFiltroCategoria.Execute("todos");

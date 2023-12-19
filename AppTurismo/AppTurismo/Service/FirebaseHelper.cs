@@ -116,7 +116,6 @@ namespace AppTurismo.Service
         {
             return (await firebase.Child(nameof(DestinosModel)).OnceAsync<DestinosModel>()).Select(item => new DestinosModel
             {
-
                 nombre = item.Object.nombre,
                 ubicacion = item.Object.ubicacion,
                 categoria = item.Object.categoria,

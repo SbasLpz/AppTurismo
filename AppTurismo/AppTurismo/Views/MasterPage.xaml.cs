@@ -25,9 +25,6 @@ namespace AppTurismo.Views
                 case "Destinos":
                     await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new Feed());
                     break;
-                case "Paquetes":
-                    await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new Feed());
-                    break;
                 case "Ofertas y descuentos":
                     await (App.Current.MainPage as FlyoutPage).Detail.Navigation.PushAsync(new Promociones());
                     break;
