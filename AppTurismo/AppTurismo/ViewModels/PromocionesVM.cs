@@ -56,7 +56,7 @@ namespace AppTurismo.ViewModels
                 }
 
             }
-            catch (Firebase.Database.FirebaseException ex)
+            catch (Exception ex)
             {
                 // Imprimir detalles sobre la excepción
                 Console.WriteLine($"Error: {ex.Message}");

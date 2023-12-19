@@ -24,10 +24,6 @@ namespace AppTurismo.Views
             promocionesListView.RefreshCommand = new Command(() => {
                 OnAppearing();
             });
-            OnAppearing();
-            //BindingContext = new PromocionesVM();
-            //(BindingContext as PromocionesVM)?.ExecuteCargarOfertas();
-
         }
 
         protected override async void OnAppearing()
