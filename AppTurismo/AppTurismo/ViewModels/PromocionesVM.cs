@@ -18,24 +18,25 @@ namespace AppTurismo.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private ObservableCollection<PromocionesModel> ofertas;
-        public ICommand ComandoVermas { get; set; }
-        public ICommand cargarFeed { get; }
-        
-        public ObservableCollection<PromocionesModel> listaFeed
+        public ICommand ComandoMasInformacion { get; set; }
+        public ICommand cargarFeedOfertas { get; }
+
+        public ObservableCollection<PromocionesModel> ofertaFeed
         {
             get { return ofertas; }
             set
             {
                 ofertas = value;
-                OnPropertyChanged(nameof(listaFeed));
+                OnPropertyChanged(nameof(ofertaFeed));
             }
         }
 
+
         public PromocionesVM()
         {
-            cargarFeed = new Command(ExecuteCargarFeed);
-            ExecuteCargarFeed();
-         /*   ComandoVermas = new Command<OfertasModel>(ExecuteVerMas); */
+            cargarFeedOfertas = new Command(ExecuteCargarOfertas);
+            ExecuteCargarOfertas();
+            ComandoMasInformacion = new Command<PromocionesModel>(ExecuteMasInformacion);
         }
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -43,7 +44,7 @@ namespace AppTurismo.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async void ExecuteCargarFeed()
+        public async void ExecuteCargarOfertas()
         {
             try
             {
@@ -51,13 +52,13 @@ namespace AppTurismo.ViewModels
                 if (result != null)
                 {
                     Debug.WriteLine("DESTINOS OBTENIDOSSS !!!!!");
-                    listaFeed = new ObservableCollection<PromocionesModel>(result);
+                    ofertaFeed = new ObservableCollection<PromocionesModel>(result);
 
                 }
                 else
                 {
                     Debug.WriteLine("DATOS NO OBTENIDOS OH NO !!");
-                    listaFeed = null;
+                    ofertaFeed = null;
                 }
             }
             catch (Firebase.Database.FirebaseException ex)
@@ -69,12 +70,19 @@ namespace AppTurismo.ViewModels
             }
 
         }
-        //private async void ExecuteVerMas(OfertasModel destino)
-        //{
-        //    Application.Current.Properties["DestinoId"] = destino.
-        //    var navigation = Application.Current.MainPage.Navigation;
-        //    var nuevaPagina = new FeedDetails(destino);
-        //    await navigation.PushModalAsync(nuevaPagina);
-        //}
+
+        private async void ExecuteMasInformacion(PromocionesModel oferta)
+        {
+
+            Debug.WriteLine("Hola");
+
+            var navigation = Application.Current.MainPage.Navigation;
+
+            // Crea una nueva instancia de la página que deseas abrir
+            var nuevaPagina = new PromocionesDetails(oferta);
+
+            // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
+            await navigation.PushModalAsync(nuevaPagina);
+        }
     }
 }
