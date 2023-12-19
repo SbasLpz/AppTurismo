@@ -13,10 +13,8 @@
                 </StackLayout>
 
                 <StackLayout Padding="20" Spacing="20">
-                    <ListView x:Name="promocionesListView" ItemsSource="{Binding promociones}"
-                              HasUnevenRows="True"
-                                IsRefreshing="True"
-                                IsPullToRefreshEnabled="True"
+                    
+                    <ListView x:Name="promocionesListView" ItemsSource="{Binding ofertasFeed}"
                                 CachingStrategy="RecycleElement"
                                 RowHeight="200">
 
@@ -30,7 +28,7 @@
                                             <Label Text="{Binding Descuento}" />
                                             <Label Text="{Binding Compania}" />
                                             <Label Text="{Binding Precio}" />
-                                            <!--<Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>-->
+                                            <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoMasInformacion, Source={x:Reference promocionesListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>  
                                         </StackLayout>
                                     </StackLayout>
                                 </ViewCell>

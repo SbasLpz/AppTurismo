@@ -77,7 +77,7 @@ namespace AppTurismo.ViewModels
         {
 
             Debug.WriteLine("Hola");
-
+            Application.Current.Properties["OfertsId"] = oferta.Id;
             var navigation = Application.Current.MainPage.Navigation;
 
             // Crea una nueva instancia de la página que deseas abrir
