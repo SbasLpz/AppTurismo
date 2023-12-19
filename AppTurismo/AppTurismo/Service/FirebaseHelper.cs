@@ -156,7 +156,22 @@ namespace AppTurismo.Service
                 precio = item.Object.precio
             }).Where(c => c.categoria.ToLower().Contains(cat.ToLower())).ToList();
         }
-        
+
+        public async Task<List<DestinosModel>> GetDestinosById(string id)
+        {
+            return (await firebase
+                .Child("Destinos")
+                .OnceAsync<DestinosModel>()).Select(item => new DestinosModel
+                {
+                    Id = item.Object.Id,
+                    nombre = item.Object.nombre,
+                    categoria = item.Object.categoria,
+                    ubicacion = item.Object.ubicacion,
+                    imagen = item.Object.imagen,
+                    precio = item.Object.precio
+                }).Where(c => c.Id == id).ToList();
+        }
+
         // Ofertas
         public async Task<List<PromocionesModel>> GetOfertas()
         {
@@ -173,6 +188,21 @@ namespace AppTurismo.Service
                     }).ToList();
         }
 
+        public async Task<List<PromocionesModel>> GetOfertasById(string id)
+        {
+            return (await firebase.Child("Promociones")
+                .OnceAsync<PromocionesModel>())
+                .Select(item => new PromocionesModel()
+                {
+                    Id = item.Object.Id,
+                    ImageSource = item.Object.ImageSource,
+                    Titulo = item.Object.Titulo,
+                    Descuento = item.Object.Descuento,
+                    Compania = item.Object.Compania,
+                    Precio = item.Object.Precio
+                }).Where(c => c.Id == id).ToList();
+        }
+
         // Reservas
         public async Task AddReserva(ReservaModel reserva)
         {
@@ -186,6 +216,19 @@ namespace AppTurismo.Service
             });
         }
 
+        public async Task<List<ReservaModel>> GetReservasByUser(string userId)
+        {
+            return (await firebase
+            .Child("Reservas")
+            .OnceAsync<ReservaModel>())
+            .Select(item => new ReservaModel()
+                 {
+                     Id = item.Object.Id,
+                     IdUsuario = item.Object.IdUsuario,
+                     IdDestino= item.Object.IdDestino
+                 }).ToList();
+        }
+
         // Reservas
         public async Task AddReservaPromociones(ReservaPromocionModel reserva)
         {
@@ -197,6 +240,19 @@ namespace AppTurismo.Service
                 IdUsuario = reserva.IdUsuario,
                 IdPromocion = reserva.IdPromocion,
             });
+        }
+
+        public async Task<List<ReservaPromocionModel>> GetReservasPromocionesByUser(string userId)
+        {
+            return (await firebase
+            .Child("ReservasPromociones")
+            .OnceAsync<ReservaPromocionModel>())
+            .Select(item => new ReservaPromocionModel()
+            {
+                Id = item.Object.Id,
+                IdUsuario = item.Object.IdUsuario,
+                IdPromocion = item.Object.IdPromocion
+            }).ToList();
         }
 
         // Comentarios / Reseñas

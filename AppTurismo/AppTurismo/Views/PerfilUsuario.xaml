@@ -7,34 +7,41 @@
             <StackLayout>
 
                 <StackLayout BackgroundColor="LightBlue" HeightRequest="160" Padding="10" Spacing="10">
-                    <Image Source="usuarioIconoPerfil.webp" Aspect="AspectFit" HeightRequest="100"/>
-                    <Label Text="{Binding usuario.nombres}" TextColor="Blue" FontSize="30" FontAttributes="Bold"
-                           HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                    <Image Source="PerfilUsuarioIcono.png" Aspect="AspectFit" HeightRequest="100"/>
                 </StackLayout>
 
                 <StackLayout Padding="20" Spacing="20">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,10">
                         <Button x:Name="Historial"  BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0" 
-                                HeightRequest="50" Text="Historial"  />
+                                HeightRequest="50" Text="Historial" Command="{Binding ComandoGoHistorial}" />
                         <Button x:Name="Perfil"  BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0"
-                                HeightRequest="50" Text="Perfil"  />
+                                HeightRequest="50" Text="Perfil"/>
                         <Button BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0" 
                                 HeightRequest="50" Text="Reseñas" Command="{Binding ComandoGoReviews}" />
                     </StackLayout>
                 </StackLayout>
 
                 <StackLayout Padding="20" Spacing="20">
-                    <StackLayout Margin="0,10">
-                        <Label Text="Información Personal" FontSize="20" TextColor="#6AC46A" HorizontalOptions="CenterAndExpand"/>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="0,10">
-                            <Label Text="{Binding usuario.nombres}" TextColor="Black"/>
-                            <Label Text="{Binding usuario.apellidos}" TextColor="Black"/>
-                            <Label Text="{Binding usuario.correo}" TextColor="Black"/>
-                            <Label Text="{Binding usuario.telefono}" TextColor="Black"/>
-                            <Button x:Name="EditarInformacion" BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,10" 
-                                    HeightRequest="50" Text="Editar Información" />
-                        </StackLayout>
-                    </StackLayout>
+                    <ListView x:Name="promocionesListView" ItemsSource="{Binding usuarioFeed}"
+        CachingStrategy="RecycleElement"
+        RowHeight="200">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Margin="8" Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding nombres}" FontAttributes="Bold" />
+                                            <Label Text="{Binding apellidos}" />
+                                            <Label Text="{Binding telefono}" />
+                                            <Label Text="{Binding correo}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

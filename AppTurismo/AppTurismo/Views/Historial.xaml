@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTurismo.Views.Historial">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- Contenido superior -->
+
+            <ScrollView Grid.Row="1">
+                <StackLayout>
+
+
+                    <StackLayout BackgroundColor="LightGreen" HeightRequest="160" Padding="20" Spacing="10">
+                        <Image Source="historialcon.png" Aspect="AspectFit" HeightRequest="120" />
+                        <Label Text="Historial" TextColor="SaddleBrown" FontSize="30" FontAttributes="Bold"
+                       HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+                    </StackLayout>
+
+                    <StackLayout Padding="20" Spacing="20">
+
+                        <ListView x:Name="promocionesListView" ItemsSource="{Binding reservaciones}"
+                            CachingStrategy="RecycleElement"
+                            RowHeight="200">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="8" Orientation="Horizontal">
+                                            <Image x:Name="imgDestino" Source="{Binding imagen, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="{Binding name}" FontAttributes="Bold" />
+                                                <Label Text="{Binding price}" />
+                                                <Label Text="{Binding type}" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

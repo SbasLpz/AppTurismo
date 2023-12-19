@@ -11,12 +11,15 @@ using Xamarin.Forms;
 
 namespace AppTurismo.ViewModels
 {
-    public class PerfilUsuarioVM
+    public class PerfilUsuarioVM : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        private string userId = Application.Current.Properties["UserId"].ToString();
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private ObservableCollection<UsuarioModel> usuario;
         public ICommand cargarFeedUsuario { get; set; }
         public ICommand ComandoGoReviews { get; set; }
+        public ICommand ComandoGoHistorial { get; set; }
 
         public ObservableCollection<UsuarioModel> usuarioFeed
         {
@@ -24,13 +27,21 @@ namespace AppTurismo.ViewModels
             set
             {
                 usuario = value;
+                OnPropertyChanged(nameof(usuarioFeed));
             }
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public PerfilUsuarioVM()
         {
             cargarFeedUsuario = new Command(ExecuteCargarUsuario);
+            ExecuteCargarUsuario();
             ComandoGoReviews = new Command(ExecuteGoToReviews);
+            ComandoGoHistorial = new Command(ExecuteGoToHistorial);
         }
 
         private async void ExecuteGoToReviews()
@@ -43,11 +54,21 @@ namespace AppTurismo.ViewModels
             await navigation.PushModalAsync(nuevaPagina);
         }
 
+        private async void ExecuteGoToHistorial()
+        {
+            // Obtén la instancia de la interfaz de navegación desde la página actual
+            var navigation = Application.Current.MainPage.Navigation;
+            // Crea una nueva instancia de la página que deseas abrir
+            var nuevaPagina = new Historial();
+            // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
+            await navigation.PushModalAsync(nuevaPagina);
+        }
+
         private async void ExecuteCargarUsuario()
         {
             try
             {
-                var result = await firebaseHelper.GetUsuarioById("8ea4d5e1-bd71-41bc-96be-8ae595feefba");
+                var result = await firebaseHelper.GetUsuarioById(userId);
                 if (result != null)
                 {
                     usuarioFeed = new ObservableCollection<UsuarioModel>(result);
