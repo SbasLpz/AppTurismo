@@ -5,14 +5,40 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <StackLayout BackgroundColor="#CF010B" HeightRequest="160" Padding="20" Spacing="10">
-                    <Image Source="OfertasIcono.png" Aspect="AspectFit" HeightRequest="100"/>
-                    <Label Text="Ofertas y Descuentos" TextColor="Beige" FontSize="30" FontAttributes="Bold"
+                <StackLayout BackgroundColor="Beige" HeightRequest="160" Padding="20" Spacing="10">
+                    <Image Source="Promociones.jpg" Aspect="AspectFit" HeightRequest="120" />
+                    <Label Text="Ofertas y Descuentos" TextColor="CadetBlue" FontSize="30" FontAttributes="Bold"
                            HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
                 </StackLayout>
 
                 <StackLayout Padding="20" Spacing="20">
-                    <CollectionView ItemsSource="{Binding Ofertas}">
+                    <ListView x:Name="promocionesListView" ItemsSource="{Binding promociones}"
+                              HasUnevenRows="True"
+                                IsRefreshing="True"
+                                IsPullToRefreshEnabled="True"
+                                CachingStrategy="RecycleElement"
+                                RowHeight="200">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Margin="8" Orientation="Horizontal">
+                                        <Image x:Name="imgDestino" Source="{Binding ImagenSource, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding Titulo}" FontAttributes="Bold" />
+                                            <Label Text="{Binding Descuento}" />
+                                            <Label Text="{Binding Compania}" />
+                                            <Label Text="{Binding Precio}" />
+                                            <!--<Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>-->
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                    <!--<CollectionView ItemsSource="{Binding promociones}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout BackgroundColor="White" Padding="10" Spacing="10">
@@ -21,12 +47,12 @@
                                     <Label Text="{Binding Descuento}" FontSize="14" TextColor="DarkOliveGreen"/>
                                     <Label Text="{Binding Compania}" FontSize="14" TextColor="DarkOliveGreen"/>
                                     <Label Text="{Binding Precio}" FontSize="14" TextColor="DarkOliveGreen"/>
-                                    <Button Text="Ver más información" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
-                                            Command="{Binding InformacionCommand}"/>
+                                    --><!--<Button Text="Ver más información" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
+                                            Command="{Binding BindingContext.ComandoMasInformacion}"/>--><!--
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    </CollectionView>-->
                 </StackLayout>
             </StackLayout>
         </ScrollView>

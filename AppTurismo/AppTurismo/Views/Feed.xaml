@@ -18,18 +18,20 @@
                 
 
                 <Frame WidthRequest="200" HeightRequest="150" BackgroundColor="Aqua" Margin="0" Padding="0">
-                    <AbsoluteLayout Margin="0" Padding="0">
-                        <Image Source="playaGuana2.jpeg" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
-                        <!-- Contenido del Frame encima de la imagen de fondo -->
-                        <StackLayout Padding="10">
-                            <SearchBar Placeholder="Search..."
+                        <AbsoluteLayout Margin="0" Padding="0">
+                            <Image Source="guanacasteLogo.jpg" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+                            <!-- Contenido del Frame encima de la imagen de fondo -->
+                            <StackLayout Padding="10">
+                                <SearchBar Placeholder="Search..."
                                x:Name="txtSearch"
                                TextChanged="TxtSearch_TextChanged"
-                               SearchButtonPressed="TxtSearch_SearchButtonPressed" />
-                            <!-- Otros elementos -->
-                        </StackLayout>
-                    </AbsoluteLayout>
-                </Frame>
+                               SearchButtonPressed="TxtSearch_SearchButtonPressed"
+                               HorizontalOptions="Center"
+                                       />
+                                <!-- Otros elementos -->
+                            </StackLayout>
+                        </AbsoluteLayout>
+                    </Frame>
 
                     <ListView x:Name="destinosListView" ItemsSource="{Binding listaFeed}"
                   CachingStrategy="RecycleElement"
@@ -45,7 +47,7 @@
                                             <Label Text="{Binding ubicacion}" />
                                             <Label Text="{Binding categoria}" />
                                             <Label Text="{Binding precio}" />
-                                            <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}" WidthRequest="110"></Button>
+                                            <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoVermas, Source={x:Reference destinosListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>
                                         </StackLayout>
                                     </StackLayout>
                                 </ViewCell>

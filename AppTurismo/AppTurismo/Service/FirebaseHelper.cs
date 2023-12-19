@@ -37,7 +37,7 @@ namespace AppTurismo.Service
                     activo = item.Object.activo
                 }).ToList();
         }
-        public async Task<UsuarioModel> GetUsuarioById(string usuarioId)
+        public async Task<List<UsuarioModel>> GetUsuarioById(string usuarioId)
         {
             var usuarios = await firebase
                 .Child("Usuarios")
@@ -55,7 +55,8 @@ namespace AppTurismo.Service
                     correo = item.Object.correo,
                     activo = item.Object.activo
                 })
-                .FirstOrDefault(u => u.Id.ToString() == usuarioId);
+                .Where(u => u.Id.ToString() == usuarioId)
+                .ToList();
 
             return usuario;
         }
@@ -250,7 +251,7 @@ namespace AppTurismo.Service
 
                 // Obtener el nombre del usuario
                 var usuario = await GetUsuarioById(item.Object.IdUsuario);
-                resena.nombreUser = usuario?.nombres; // Asigna el nombre del usuario a la propiedad NombreUsuario
+                resena.nombreUser = usuario[0].nombres; // Asigna el nombre del usuario a la propiedad NombreUsuario
 
                 return resena;
             });

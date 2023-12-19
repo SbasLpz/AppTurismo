@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppTurismo.Models;
+using AppTurismo.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,6 +18,21 @@ namespace AppTurismo.Views
         public Promociones()
         {
             InitializeComponent();
+            promocionesListView.RefreshCommand = new Command(() => {
+                OnAppearing();
+            });
+            OnAppearing();
+            //BindingContext = new PromocionesVM();
+            //(BindingContext as PromocionesVM)?.ExecuteCargarOfertas();
+
+        }
+
+        protected async void OnPageAppearing(object sender, EventArgs e)
+        {
+            var obj = new PromocionesVM();
+            var promociones = await obj.ExecuteCargarOfertas();
+            promocionesListView.ItemsSource = promociones;
+            promocionesListView.IsRefreshing = false;
 
         }
     }

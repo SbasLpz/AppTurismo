@@ -4,6 +4,7 @@ using AppTurismo.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
@@ -34,8 +35,6 @@ namespace AppTurismo.ViewModels
 
         public PromocionesVM()
         {
-            cargarFeedOfertas = new Command(ExecuteCargarOfertas);
-            ExecuteCargarOfertas();
             ComandoMasInformacion = new Command<PromocionesModel>(ExecuteMasInformacion);
         }
 
@@ -44,11 +43,12 @@ namespace AppTurismo.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async void ExecuteCargarOfertas()
+        public async Task<List<PromocionesModel>> ExecuteCargarOfertas()
         {
+            var result = new List<PromocionesModel>();
             try
             {
-                var result = await firebaseHelper.GetOfertas();
+                result = await firebaseHelper.GetOfertas();
                 if (result != null)
                 {
                     Debug.WriteLine("DESTINOS OBTENIDOSSS !!!!!");
@@ -60,6 +60,7 @@ namespace AppTurismo.ViewModels
                     Debug.WriteLine("DATOS NO OBTENIDOS OH NO !!");
                     ofertaFeed = null;
                 }
+
             }
             catch (Firebase.Database.FirebaseException ex)
             {
@@ -68,6 +69,8 @@ namespace AppTurismo.ViewModels
                 Console.WriteLine($"StackTrace: {ex.StackTrace}");
                 // Puedes agregar más información si es necesario
             }
+
+            return result;
 
         }
 

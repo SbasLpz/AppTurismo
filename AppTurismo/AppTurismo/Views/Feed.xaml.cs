@@ -17,8 +17,6 @@ namespace AppTurismo.Views
         {
             InitializeComponent();
             BindingContext = new FeedVM();
-            Console.WriteLine("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            //Appearing += OnPageAppearing;
             (BindingContext as FeedVM)?.ExecuteCargarFeed();
 
             

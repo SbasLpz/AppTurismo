@@ -16,7 +16,6 @@ namespace AppTurismo.Views
         {
             InitializeComponent();
             BindingContext = new PerfilUsuarioVM();
-            (BindingContext as PerfilUsuarioVM)?.ExecuteCargarFeed();
         }
     }
 }
