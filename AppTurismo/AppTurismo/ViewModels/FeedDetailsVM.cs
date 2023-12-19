@@ -213,7 +213,7 @@ namespace AppTurismo.ViewModels
             // Obtén la instancia de la interfaz de navegación desde la página actual
             var navigation = Application.Current.MainPage.Navigation;
             // Crea una nueva instancia de la página que deseas abrir
-            var nuevaPagina = new Pago(userId, destinoId);
+            var nuevaPagina = new Pago();
             // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
             await navigation.PushModalAsync(nuevaPagina);
         }

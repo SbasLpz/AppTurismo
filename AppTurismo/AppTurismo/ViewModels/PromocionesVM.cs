@@ -75,13 +75,11 @@ namespace AppTurismo.ViewModels
 
         private async void ExecuteMasInformacion(PromocionesModel oferta)
         {
-
-            Debug.WriteLine("Hola");
             Application.Current.Properties["OfertsId"] = oferta.Id;
             var navigation = Application.Current.MainPage.Navigation;
 
             // Crea una nueva instancia de la página que deseas abrir
-            var nuevaPagina = new PromocionesDetails(oferta);
+            var nuevaPagina = new Pago(oferta.Id);
 
             // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
             await navigation.PushModalAsync(nuevaPagina);
