@@ -18,22 +18,10 @@
                                 HeightRequest="50" Text="Historial"  />
                         <Button x:Name="Perfil"  BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0"
                                 HeightRequest="50" Text="Perfil"  />
-                        <Button x:Name="Resenas"  BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0" 
-                                HeightRequest="50" Text="Reseñas" />
+                        <Button BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0" 
+                                HeightRequest="50" Text="Reseñas" Command="{Binding ComandoGoReviews}" />
                     </StackLayout>
                 </StackLayout>
-
-                <StackLayout Padding="20" Spacing="20">
-                    <StackLayout Margin="0,10">
-                        <Label Text="Cuentas Bancarias" FontSize="20" TextColor="#6AC46A" HorizontalOptions="CenterAndExpand"/>
-                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="0,10">
-                            <Label Text="{Binding usuario.tarjeta}" TextColor="Black"/>
-                            <Button x:Name="EditarCuenta" BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="6,10"
-                                    HeightRequest="40" Text="Editar Cuenta"/>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-
 
                 <StackLayout Padding="20" Spacing="20">
                     <StackLayout Margin="0,10">

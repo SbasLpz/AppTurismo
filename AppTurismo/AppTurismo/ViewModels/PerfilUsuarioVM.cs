@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Input;
 using AppTurismo.Models;
 using AppTurismo.Service;
+using AppTurismo.Views;
 using Xamarin.Forms;
 
 namespace AppTurismo.ViewModels
@@ -14,7 +15,8 @@ namespace AppTurismo.ViewModels
     {
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         private ObservableCollection<UsuarioModel> usuario;
-        public ICommand cargarFeedUsuario { get; }
+        public ICommand cargarFeedUsuario { get; set; }
+        public ICommand ComandoGoReviews { get; set; }
 
         public ObservableCollection<UsuarioModel> usuarioFeed
         {
@@ -28,10 +30,20 @@ namespace AppTurismo.ViewModels
         public PerfilUsuarioVM()
         {
             cargarFeedUsuario = new Command(ExecuteCargarUsuario);
-            ExecuteCargarUsuario();
+            ComandoGoReviews = new Command(ExecuteGoToReviews);
         }
 
-        public async void ExecuteCargarUsuario()
+        private async void ExecuteGoToReviews()
+        {
+            // Obtén la instancia de la interfaz de navegación desde la página actual
+            var navigation = Application.Current.MainPage.Navigation;
+            // Crea una nueva instancia de la página que deseas abrir
+            var nuevaPagina = new Resenas();
+            // Usa el metodo PushAsync para agregar la nueva página a la pila de navegación
+            await navigation.PushModalAsync(nuevaPagina);
+        }
+
+        private async void ExecuteCargarUsuario()
         {
             try
             {

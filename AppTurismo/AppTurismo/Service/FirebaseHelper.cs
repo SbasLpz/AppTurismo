@@ -276,6 +276,35 @@ namespace AppTurismo.Service
 
         }
 
+        public async Task<List<ResenaModel>> GetComentariosByUser(string idUser)
+        {
+            var comentarios = await firebase.Child("Resenas").OnceAsync<ResenaModel>();
+
+            var comentariosConNombres = comentarios.Select(async item =>
+            {
+                var resena = new ResenaModel
+                {
+                    IdUsuario = item.Object.IdUsuario,
+                    IdDestino = item.Object.IdDestino,
+                    estrellas = item.Object.estrellas,
+                    comentario = item.Object.comentario,
+                    Id = item.Object.Id
+                };
+
+                // Obtener el nombre del usuario
+                var usuario = await GetUsuarioById(item.Object.IdUsuario);
+                resena.nombreUser = usuario[0].nombres; // Asigna el nombre del usuario a la propiedad NombreUsuario
+
+                return resena;
+            });
+
+            //return (await Task.WhenAll(comentariosConNombres)).ToList();
+            var todasLasResenas = await Task.WhenAll(comentariosConNombres);
+            var resenasFiltradas = todasLasResenas.Where(r => r.IdUsuario == idUser).ToList();
+            return resenasFiltradas;
+
+        }
+
         public async Task<bool> AgregarDestino(DestinosModel destino)
         {
             var data = await firebase.Child("Destinos").PostAsync(JsonConvert.SerializeObject(destino));

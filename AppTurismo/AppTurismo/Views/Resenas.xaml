@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fRating="clr-namespace:Rating;assembly=Rating"
+             x:Class="AppTurismo.Views.Resenas">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <ListView x:Name="comentariosListView" 
+                          ItemsSource="{Binding ComentariosList}"
+                          CachingStrategy="RecycleElement"
+                          RowHeight="150" 
+                          BackgroundColor="Transparent" 
+                          SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="8" Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <fRating:RatingBar x:Name="rating" HorizontalOptions="Start" ImageWidth="30" ImageHeight="30" FlowDirection="LeftToRight" EmptyStarImage="star.png" FillStarImage="star_2.png" SelectedStarValue="{Binding estrellas}" IsEnabled="False"></fRating:RatingBar>
+                                        <Label Text="{Binding nombreUser}" FontAttributes="Bold" />
+                                        <Label Text="{Binding comentario}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+             </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
