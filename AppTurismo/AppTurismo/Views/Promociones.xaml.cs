@@ -15,9 +15,12 @@ namespace AppTurismo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Promociones : ContentPage
     {
+        PromocionesVM obj = new PromocionesVM();
+
         public Promociones()
         {
             InitializeComponent();
+
             promocionesListView.RefreshCommand = new Command(() => {
                 OnAppearing();
             });
@@ -27,13 +30,11 @@ namespace AppTurismo.Views
 
         }
 
-        protected async void OnPageAppearing(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            var obj = new PromocionesVM();
             var promociones = await obj.ExecuteCargarOfertas();
             promocionesListView.ItemsSource = promociones;
             promocionesListView.IsRefreshing = false;
-
         }
     }
 

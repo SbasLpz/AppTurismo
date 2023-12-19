@@ -32,12 +32,6 @@ namespace AppTurismo.ViewModels
             }
         }
 
-
-        public PromocionesVM()
-        {
-            ComandoMasInformacion = new Command<PromocionesModel>(ExecuteMasInformacion);
-        }
-
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -160,17 +160,18 @@ namespace AppTurismo.Service
         // Ofertas
         public async Task<List<PromocionesModel>> GetOfertas()
         {
+            var ofertas = await firebase.Child("Promociones").OnceAsync<PromocionesModel>();
+                
+            var list = ofertas.Select(item => new PromocionesModel()
+            {
+                ImagenSource = item.Object.ImagenSource,
+                Titulo = item.Object.Titulo,
+                Descuento = item.Object.Descuento,
+                Compania = item.Object.Compania,
+                Precio = item.Object.Precio
+            }).ToList();
 
-            return (await firebase
-                .Child("Promociones")
-                .OnceAsync<PromocionesModel>()).Select(item => new PromocionesModel()
-                {
-                    ImagenSource = item.Object.ImagenSource,
-                    Titulo = item.Object.Titulo,
-                    Descuento = item.Object.Descuento,
-                    Compania = item.Object.Compania,
-                    Precio = item.Object.Precio
-                }).ToList();
+            return list; 
         }
 
         // Comentarios / Reseñas
