@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTurismo.Views.PerfilUsuario">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
                 <StackLayout BackgroundColor="LightBlue" HeightRequest="160" Padding="10" Spacing="10">
                     <Image Source="PerfilUsuarioIcono.png" Aspect="AspectFit" HeightRequest="100"/>
@@ -19,7 +23,6 @@
                         <Button BackgroundColor="#6AC46A" CornerRadius="50" TextColor="White" Margin="5,0" 
                                 HeightRequest="50" Text="Reseñas" Command="{Binding ComandoGoReviews}" />
                     </StackLayout>
-                </StackLayout>
 
                 <StackLayout Padding="20" Spacing="20">
                     <ListView x:Name="promocionesListView" ItemsSource="{Binding usuarioFeed}"
@@ -43,8 +46,7 @@
 
                     </ListView>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
-
 </ContentPage>
