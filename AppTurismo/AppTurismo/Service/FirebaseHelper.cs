@@ -186,6 +186,19 @@ namespace AppTurismo.Service
             });
         }
 
+        // Reservas
+        public async Task AddReservaPromociones(ReservaPromocionModel reserva)
+        {
+            await firebase
+            .Child("ReservasPromociones")
+            .PostAsync(new ReservaPromocionModel()
+            {
+                Id = Guid.NewGuid(),
+                IdUsuario = reserva.IdUsuario,
+                IdPromocion = reserva.IdPromocion,
+            });
+        }
+
         // Comentarios / Reseñas
         public async Task AddComment(ResenaModel resena)
         {

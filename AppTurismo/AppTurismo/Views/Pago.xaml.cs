@@ -13,10 +13,16 @@ namespace AppTurismo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Pago : ContentPage
     {
-        public Pago(string userId, string destinoId)
+        public Pago()
         {
             InitializeComponent();
             BindingContext = new PagoVM();
+        }
+
+        public Pago(string promocionId)
+        {
+            InitializeComponent();
+            BindingContext = new PagoVM(promocionId);
         }
     }
 }

@@ -38,7 +38,7 @@
                                                 <Label Text="{Binding Descuento}" />
                                                 <Label Text="{Binding Compania}" />
                                                 <Label Text="{Binding Precio}" />
-                                                <Button BackgroundColor="LightGreen" Text="Mas Informacion" Command="{Binding BindingContext.ComandoMasInformacion, Source={x:Reference promocionesListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>
+                                                <Button BackgroundColor="LightGreen" Text="Reservar" Command="{Binding BindingContext.ComandoMasInformacion, Source={x:Reference promocionesListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>
                                             </StackLayout>
                                         </StackLayout>
                                     </ViewCell>
