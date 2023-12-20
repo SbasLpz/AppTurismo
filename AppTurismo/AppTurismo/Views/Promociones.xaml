@@ -11,8 +11,6 @@
             </Grid.RowDefinitions>
 
 
-            <!-- Contenido superior -->
-
             <ScrollView Grid.Row="1">
                 <StackLayout>
 
