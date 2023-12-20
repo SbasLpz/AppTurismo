@@ -21,8 +21,6 @@ namespace AppTurismo.Views
             InitializeComponent();
             BindingContext = new PromocionesVM();
             (BindingContext as PromocionesVM)?.ExecuteCargarOfertas();
-
-
         }
 
         private void OnPageAppearing(object sender, EventArgs e)

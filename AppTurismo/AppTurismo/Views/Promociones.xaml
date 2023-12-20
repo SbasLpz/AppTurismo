@@ -3,40 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTurismo.Views.Promociones">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <StackLayout BackgroundColor="Beige" HeightRequest="160" Padding="20" Spacing="10">
-                    <Image Source="Promociones.jpg" Aspect="AspectFit" HeightRequest="120" />
-                    <Label Text="Ofertas y Descuentos" TextColor="CadetBlue" FontSize="30" FontAttributes="Bold"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- Contenido superior -->
+
+            <ScrollView Grid.Row="1">
+                <StackLayout>
+
+
+                    <StackLayout BackgroundColor="Beige" HeightRequest="160" Padding="20" Spacing="10">
+                        <Image Source="Promociones.jpg" Aspect="AspectFit" HeightRequest="120" />
+                        <Label Text="Ofertas y Descuentos" TextColor="CadetBlue" FontSize="30" FontAttributes="Bold"
                            HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
-                </StackLayout>
+                    </StackLayout>
 
-                <StackLayout Padding="20" Spacing="20">
-                    
-                    <ListView x:Name="promocionesListView" ItemsSource="{Binding ofertasFeed}"
+                    <StackLayout Padding="20" Spacing="20">
+
+                        <ListView x:Name="promocionesListView" ItemsSource="{Binding ofertaFeed}"
                                 CachingStrategy="RecycleElement"
                                 RowHeight="200">
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Margin="8" Orientation="Horizontal">
-                                        <Image x:Name="imgDestino" Source="{Binding ImageSource, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
-                                        <StackLayout Orientation="Vertical">
-                                            <Label Text="{Binding Titulo}" FontAttributes="Bold" />
-                                            <Label Text="{Binding Descuento}" />
-                                            <Label Text="{Binding Compania}" />
-                                            <Label Text="{Binding Precio}" />
-                                            <Button BackgroundColor="LightGreen" Text="Ver más" Command="{Binding BindingContext.ComandoMasInformacion, Source={x:Reference promocionesListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>  
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Margin="8" Orientation="Horizontal">
+                                            <Image x:Name="imgDestino" Source="{Binding ImageSource, Converter={StaticResource UrlToImageSourceConverter}}" WidthRequest="80" HeightRequest="50"/>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="{Binding Titulo}" FontAttributes="Bold" />
+                                                <Label Text="{Binding Descuento}" />
+                                                <Label Text="{Binding Compania}" />
+                                                <Label Text="{Binding Precio}" />
+                                                <Button BackgroundColor="LightGreen" Text="Mas Informacion" Command="{Binding BindingContext.ComandoMasInformacion, Source={x:Reference promocionesListView}}" CommandParameter="{Binding .}" WidthRequest="80"></Button>
+                                            </StackLayout>
                                         </StackLayout>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
 
-                    </ListView>
-                    <!--<CollectionView ItemsSource="{Binding promociones}">
+                        </ListView>
+                        <!--<CollectionView ItemsSource="{Binding promociones}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout BackgroundColor="White" Padding="10" Spacing="10">
@@ -45,14 +57,17 @@
                                     <Label Text="{Binding Descuento}" FontSize="14" TextColor="DarkOliveGreen"/>
                                     <Label Text="{Binding Compania}" FontSize="14" TextColor="DarkOliveGreen"/>
                                     <Label Text="{Binding Precio}" FontSize="14" TextColor="DarkOliveGreen"/>
-                                    --><!--<Button Text="Ver más información" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
-                                            Command="{Binding BindingContext.ComandoMasInformacion}"/>--><!--
+                                    -->
+                        <!--<Button Text="Ver más información" BackgroundColor="LightSlateGray" CornerRadius="5" TextColor="White"
+                                            Command="{Binding BindingContext.ComandoMasInformacion}"/>-->
+                        <!--
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>-->
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage> 

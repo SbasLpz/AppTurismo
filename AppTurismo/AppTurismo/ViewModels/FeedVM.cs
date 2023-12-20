@@ -42,18 +42,7 @@ namespace AppTurismo.ViewModels
             }
         }
 
-        //public List<DestinosModel> listaFeed
-        //{
-        //    get { return lista; }
-        //    set
-        //    {
-        //        if (lista != value)
-        //        {
-        //            lista = value;
-        //            OnPropertyChanged(nameof(listaFeed));
-        //        }
-        //    }
-        //}
+
 
         public FeedVM()
         {
